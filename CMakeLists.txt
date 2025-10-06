@@ -11,12 +11,12 @@ find_package(ament_cmake REQUIRED)
 find_package(rclcpp REQUIRED)
 find_package(sensor_msgs REQUIRED)
 
-# Include directories
+# Include directories (your header is in src/)
 include_directories(
-  include
+  src
 )
 
-# Build the library (optional if you want to link as a library)
+# Build the library (optional)
 add_library(lidar_filter_lib
   src/lidar_filter.cpp
 )
@@ -29,14 +29,12 @@ add_executable(lidar_filter_node
 target_link_libraries(lidar_filter_node lidar_filter_lib)
 ament_target_dependencies(lidar_filter_node rclcpp sensor_msgs)
 
-# Install
+# Install executable
 install(TARGETS
   lidar_filter_node
   DESTINATION lib/${PROJECT_NAME}
 )
 
-install(DIRECTORY include/
-  DESTINATION include/
-)
+# No need to install headers if they are in src/
 
 ament_package()
