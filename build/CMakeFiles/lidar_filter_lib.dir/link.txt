@@ -1,2 +1,0 @@
-/usr/bin/ar qc liblidar_filter_lib.a CMakeFiles/lidar_filter_lib.dir/src/lidar_filter.cpp.o
-/usr/bin/ranlib liblidar_filter_lib.a
